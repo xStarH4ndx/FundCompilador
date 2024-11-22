@@ -3,15 +3,17 @@ grammar OlmosTypes;
 // Reglas principales
 program : statement+ ;
 statement : variableDeclaration
-    | functionDeclaration
-    | controlFlow
-    | printStatement
-    | inputStatement
-    | expression ';' ;
+          | functionDeclaration
+          | controlFlow
+          | printStatement
+          | inputStatement
+          | returnStatement
+          | listDeclaration
+          | expression ';' ;
 
 // Declaración de variables
 variableDeclaration : 'Saldano' type ID '=' expression ';' ;
-type : 'int' | 'string' | 'bool' | 'list' ;
+type : 'int' | 'float' | 'string' | 'bool' | 'list' ;
 
 // Declaración de listas
 listDeclaration : 'SaldanosList' '=' '[' (expression (',' expression)*)? ']' ';' ;
@@ -20,24 +22,26 @@ listDeclaration : 'SaldanosList' '=' '[' (expression (',' expression)*)? ']' ';'
 functionDeclaration : 'defOlmos' ID '(' parameterList? ')' '(' type ')' '{' statement* '}' ;
 parameterList : parameter (',' parameter)* ;
 parameter : type ID ;
-functionReturn : 'OlmosReturn' expression ';' ;
+returnStatement : 'OlmosReturn' expression ';' ;
 
-// Sentencias de control de flujo
+// Control de flujo
 controlFlow : ifStatement | whileLoop | forLoop ;
 ifStatement : 'Olmos' 'say' '(' condition ')' '{' statement* '}' ( 'else' '{' statement* '}' )? ;
 whileLoop : 'nachoWhile' '(' condition ')' '{' statement* '}' ;
 forLoop : 'paltaFor' '(' variableDeclaration condition ';' expression ')' '{' statement* '}' ;
 
 // Condiciones y expresiones
-condition : expression (comparisonOp expression)? ;
+condition : logicalExpression ;
+logicalExpression : comparisonExpression (('&&' | '||') comparisonExpression)* ;
+comparisonExpression : expression comparisonOp expression | expression ;
 comparisonOp : '==' | '!=' | '<' | '>' | '<=' | '>=' ;
-expression : term (('+' | '-' | '*' | '/' | '%') term)* ;
-term : ID | NUMBER | STRING | '(' expression ')' | functionCall ;
+expression : term (('+' | '-' | '*' | '/' | '%' | '=') term)* ;
+term : ID | NUMBER | STRING | FLOAT '(' expression ')' | functionCall ;
 functionCall : ID '(' argumentList? ')' ;
 argumentList : expression (',' expression)* ;
 
 // Entrada y salida
-printStatement : 'saldanosprint' '(' STRING ')' ';' ;
+printStatement : 'saldanosprint' '(' (STRING | expression) ')' ';' ;
 inputStatement : 'Saldano' type ID '=' 'olmosKeep' '(' STRING ')' ';' ;
 
 // Tokens

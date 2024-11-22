@@ -112,13 +112,13 @@ public class OlmosTypesBaseListener implements OlmosTypesListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionReturn(OlmosTypesParser.FunctionReturnContext ctx) { }
+	@Override public void enterReturnStatement(OlmosTypesParser.ReturnStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionReturn(OlmosTypesParser.FunctionReturnContext ctx) { }
+	@Override public void exitReturnStatement(OlmosTypesParser.ReturnStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -179,6 +179,30 @@ public class OlmosTypesBaseListener implements OlmosTypesListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCondition(OlmosTypesParser.ConditionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLogicalExpression(OlmosTypesParser.LogicalExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLogicalExpression(OlmosTypesParser.LogicalExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterComparisonExpression(OlmosTypesParser.ComparisonExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitComparisonExpression(OlmosTypesParser.ComparisonExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

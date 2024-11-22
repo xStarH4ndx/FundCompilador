@@ -87,15 +87,15 @@ public interface OlmosTypesListener extends ParseTreeListener {
 	 */
 	void exitParameter(OlmosTypesParser.ParameterContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OlmosTypesParser#functionReturn}.
+	 * Enter a parse tree produced by {@link OlmosTypesParser#returnStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionReturn(OlmosTypesParser.FunctionReturnContext ctx);
+	void enterReturnStatement(OlmosTypesParser.ReturnStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OlmosTypesParser#functionReturn}.
+	 * Exit a parse tree produced by {@link OlmosTypesParser#returnStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionReturn(OlmosTypesParser.FunctionReturnContext ctx);
+	void exitReturnStatement(OlmosTypesParser.ReturnStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OlmosTypesParser#controlFlow}.
 	 * @param ctx the parse tree
@@ -146,6 +146,26 @@ public interface OlmosTypesListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCondition(OlmosTypesParser.ConditionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OlmosTypesParser#logicalExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogicalExpression(OlmosTypesParser.LogicalExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OlmosTypesParser#logicalExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogicalExpression(OlmosTypesParser.LogicalExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OlmosTypesParser#comparisonExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparisonExpression(OlmosTypesParser.ComparisonExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OlmosTypesParser#comparisonExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparisonExpression(OlmosTypesParser.ComparisonExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OlmosTypesParser#comparisonOp}.
 	 * @param ctx the parse tree
