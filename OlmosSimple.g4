@@ -6,7 +6,9 @@ program : statement+ ;
 statement 
     : variableDeclaration 
     | printStatement 
-    | ifStatement 
+    | conditionalStatement
+    | whileLoop
+    | forLoop
     | expression ';' 
     ;
 
@@ -14,11 +16,25 @@ variableDeclaration
     : type ID '=' expression ';' 
     ;
 
-type : 'int' | 'string' | 'double' ;
-
-ifStatement 
-    : 'if' '(' condition ')' '{' statement* '}' ('else' '{' statement* '}')?
+type 
+    : 'saldanoInt' 
+    | 'saldanoString' 
+    | 'saldanoDouble' 
     ;
+
+conditionalStatement 
+    : 'pan' '(' condition ')' block ('queso pan' '(' condition ')' block )* ('queso' block)? 
+    ;
+
+whileLoop 
+    : 'nachoWhile' '(' condition ')' block
+    ;
+
+forLoop 
+    : 'nachoFor' '(' variableDeclaration condition ';' expression ')' block
+    ;
+
+block : '{' statement* '}' ;
 
 printStatement 
     : 'print' '(' (STRING | expression) ')' ';' 
