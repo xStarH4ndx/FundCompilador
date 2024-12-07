@@ -28,11 +28,47 @@ public interface OlmosSimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVariableDeclaration(OlmosSimpleParser.VariableDeclarationContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link OlmosSimpleParser#assignmentStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssignmentStatement(OlmosSimpleParser.AssignmentStatementContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link OlmosSimpleParser#type}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitType(OlmosSimpleParser.TypeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OlmosSimpleParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionDeclaration(OlmosSimpleParser.FunctionDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OlmosSimpleParser#paramList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParamList(OlmosSimpleParser.ParamListContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OlmosSimpleParser#param}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParam(OlmosSimpleParser.ParamContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OlmosSimpleParser#block}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBlock(OlmosSimpleParser.BlockContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OlmosSimpleParser#printStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintStatement(OlmosSimpleParser.PrintStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OlmosSimpleParser#conditionalStatement}.
 	 * @param ctx the parse tree
@@ -51,18 +87,6 @@ public interface OlmosSimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitForLoop(OlmosSimpleParser.ForLoopContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OlmosSimpleParser#block}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBlock(OlmosSimpleParser.BlockContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OlmosSimpleParser#printStatement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPrintStatement(OlmosSimpleParser.PrintStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OlmosSimpleParser#condition}.
 	 * @param ctx the parse tree
@@ -83,13 +107,6 @@ public interface OlmosSimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAdditiveExpression(OlmosSimpleParser.AdditiveExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code AssignmentExpression}
-	 * labeled alternative in {@link OlmosSimpleParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAssignmentExpression(OlmosSimpleParser.AssignmentExpressionContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code TermExpression}
 	 * labeled alternative in {@link OlmosSimpleParser#expression}.
 	 * @param ctx the parse tree
@@ -104,9 +121,22 @@ public interface OlmosSimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMultiplicativeExpression(OlmosSimpleParser.MultiplicativeExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code FunctionCallExpression}
+	 * labeled alternative in {@link OlmosSimpleParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionCallExpression(OlmosSimpleParser.FunctionCallExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link OlmosSimpleParser#term}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitTerm(OlmosSimpleParser.TermContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OlmosSimpleParser#functionCall}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionCall(OlmosSimpleParser.FunctionCallContext ctx);
 }

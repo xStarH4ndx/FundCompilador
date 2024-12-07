@@ -37,6 +37,16 @@ public interface OlmosSimpleListener extends ParseTreeListener {
 	 */
 	void exitVariableDeclaration(OlmosSimpleParser.VariableDeclarationContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link OlmosSimpleParser#assignmentStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssignmentStatement(OlmosSimpleParser.AssignmentStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OlmosSimpleParser#assignmentStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssignmentStatement(OlmosSimpleParser.AssignmentStatementContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link OlmosSimpleParser#type}.
 	 * @param ctx the parse tree
 	 */
@@ -46,6 +56,56 @@ public interface OlmosSimpleListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitType(OlmosSimpleParser.TypeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OlmosSimpleParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionDeclaration(OlmosSimpleParser.FunctionDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OlmosSimpleParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionDeclaration(OlmosSimpleParser.FunctionDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OlmosSimpleParser#paramList}.
+	 * @param ctx the parse tree
+	 */
+	void enterParamList(OlmosSimpleParser.ParamListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OlmosSimpleParser#paramList}.
+	 * @param ctx the parse tree
+	 */
+	void exitParamList(OlmosSimpleParser.ParamListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OlmosSimpleParser#param}.
+	 * @param ctx the parse tree
+	 */
+	void enterParam(OlmosSimpleParser.ParamContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OlmosSimpleParser#param}.
+	 * @param ctx the parse tree
+	 */
+	void exitParam(OlmosSimpleParser.ParamContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OlmosSimpleParser#block}.
+	 * @param ctx the parse tree
+	 */
+	void enterBlock(OlmosSimpleParser.BlockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OlmosSimpleParser#block}.
+	 * @param ctx the parse tree
+	 */
+	void exitBlock(OlmosSimpleParser.BlockContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OlmosSimpleParser#printStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintStatement(OlmosSimpleParser.PrintStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OlmosSimpleParser#printStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintStatement(OlmosSimpleParser.PrintStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OlmosSimpleParser#conditionalStatement}.
 	 * @param ctx the parse tree
@@ -76,26 +136,6 @@ public interface OlmosSimpleListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitForLoop(OlmosSimpleParser.ForLoopContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OlmosSimpleParser#block}.
-	 * @param ctx the parse tree
-	 */
-	void enterBlock(OlmosSimpleParser.BlockContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OlmosSimpleParser#block}.
-	 * @param ctx the parse tree
-	 */
-	void exitBlock(OlmosSimpleParser.BlockContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OlmosSimpleParser#printStatement}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrintStatement(OlmosSimpleParser.PrintStatementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OlmosSimpleParser#printStatement}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrintStatement(OlmosSimpleParser.PrintStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OlmosSimpleParser#condition}.
 	 * @param ctx the parse tree
@@ -129,18 +169,6 @@ public interface OlmosSimpleListener extends ParseTreeListener {
 	 */
 	void exitAdditiveExpression(OlmosSimpleParser.AdditiveExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code AssignmentExpression}
-	 * labeled alternative in {@link OlmosSimpleParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterAssignmentExpression(OlmosSimpleParser.AssignmentExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code AssignmentExpression}
-	 * labeled alternative in {@link OlmosSimpleParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitAssignmentExpression(OlmosSimpleParser.AssignmentExpressionContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code TermExpression}
 	 * labeled alternative in {@link OlmosSimpleParser#expression}.
 	 * @param ctx the parse tree
@@ -165,6 +193,18 @@ public interface OlmosSimpleListener extends ParseTreeListener {
 	 */
 	void exitMultiplicativeExpression(OlmosSimpleParser.MultiplicativeExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code FunctionCallExpression}
+	 * labeled alternative in {@link OlmosSimpleParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionCallExpression(OlmosSimpleParser.FunctionCallExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code FunctionCallExpression}
+	 * labeled alternative in {@link OlmosSimpleParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionCallExpression(OlmosSimpleParser.FunctionCallExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link OlmosSimpleParser#term}.
 	 * @param ctx the parse tree
 	 */
@@ -174,4 +214,14 @@ public interface OlmosSimpleListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitTerm(OlmosSimpleParser.TermContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OlmosSimpleParser#functionCall}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionCall(OlmosSimpleParser.FunctionCallContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OlmosSimpleParser#functionCall}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionCall(OlmosSimpleParser.FunctionCallContext ctx);
 }
