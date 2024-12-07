@@ -117,53 +117,15 @@ public interface OlmosSimpleListener extends ParseTreeListener {
 	 */
 	void exitComparisonOp(OlmosSimpleParser.ComparisonOpContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code AdditiveExpression}
-	 * labeled alternative in {@link OlmosSimpleParser#expression}.
+	 * Enter a parse tree produced by {@link OlmosSimpleParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterAdditiveExpression(OlmosSimpleParser.AdditiveExpressionContext ctx);
+	void enterExpression(OlmosSimpleParser.ExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code AdditiveExpression}
-	 * labeled alternative in {@link OlmosSimpleParser#expression}.
+	 * Exit a parse tree produced by {@link OlmosSimpleParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitAdditiveExpression(OlmosSimpleParser.AdditiveExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code AssignmentExpression}
-	 * labeled alternative in {@link OlmosSimpleParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterAssignmentExpression(OlmosSimpleParser.AssignmentExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code AssignmentExpression}
-	 * labeled alternative in {@link OlmosSimpleParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitAssignmentExpression(OlmosSimpleParser.AssignmentExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code TermExpression}
-	 * labeled alternative in {@link OlmosSimpleParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterTermExpression(OlmosSimpleParser.TermExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code TermExpression}
-	 * labeled alternative in {@link OlmosSimpleParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitTermExpression(OlmosSimpleParser.TermExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code MultiplicativeExpression}
-	 * labeled alternative in {@link OlmosSimpleParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterMultiplicativeExpression(OlmosSimpleParser.MultiplicativeExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code MultiplicativeExpression}
-	 * labeled alternative in {@link OlmosSimpleParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitMultiplicativeExpression(OlmosSimpleParser.MultiplicativeExpressionContext ctx);
+	void exitExpression(OlmosSimpleParser.ExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OlmosSimpleParser#term}.
 	 * @param ctx the parse tree
