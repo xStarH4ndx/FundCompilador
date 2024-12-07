@@ -48,8 +48,12 @@ comparisonOp
     : '==' | '!=' | '<' | '>' | '<=' | '>=' 
     ;
 
+// Actualizamos la regla de expresiones
 expression 
-    : term (('+' | '-' | '*' | '/' | '%') term)* 
+    : ID '=' expression                          # AssignmentExpression
+    | expression op=('*' | '/' | '%') expression # MultiplicativeExpression
+    | expression op=('+' | '-') expression       # AdditiveExpression
+    | term                                       # TermExpression
     ;
 
 term 
